@@ -1,49 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>EVC@</title>
-</head>
-<body>
-  <div class="relative inline-block text-left">
-    <div>
-      <span class="rounded-md shadow-sm">
-        <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" id="options-menu" aria-haspopup="true" aria-expanded="true">
-          Options
-          <!-- Heroicon name: chevron-down -->
-          <svg class="-mr-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-      </span>
-    </div>
-  
-    <!--
-      Dropdown panel, show/hide based on dropdown state.
-  
-      Entering: "transition ease-out duration-100"
-        From: "transform opacity-0 scale-95"
-        To: "transform opacity-100 scale-100"
-      Leaving: "transition ease-in duration-75"
-        From: "transform opacity-100 scale-100"
-        To: "transform opacity-0 scale-95"
-    -->
-    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
-      <div class="rounded-md bg-white shadow-xs">
-        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Account settings</a>
-          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Support</a>
-          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">License</a>
-          <form method="POST" action="#">
-            <button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
-              Sign out
-            </button>
-          </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>EVC@</title>
+  </head>
+  <body class="bg-gray-800 text-white font-sans">
+    <div class="max-w-6xl grid lg:grid-cols-3 px-5 my-5 mx-auto">
+      <!-- wrapper -->
+      <nav class="col-span-3 text-gray-400 md:text-2xl font-extrabold">
+        <div class="flex justify-between items-center">
+          <div class="px-4 cursor-pointer md:hidden" id="burger">
+            <svg
+              class="w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+          </div>
+          <h1 class="font-extrabold uppercase text-2xl text-white uppercase">
+            Every View Counts
+          </h1>
         </div>
+        <ul
+          class="px-5 md:justify-around md:text-lg hidden md:flex md:justify-end md:text-sm md:uppercase"
+          id="menu"
+        >
+          <li class="hover:bg-gray-600 right-align">Home</li>
+          <li>Oceans</li>
+          <li>Forests</li>
+          <li>Tundras</li>
+        </ul>
+      </nav>
+      <div class="col-span-3">
+        <img src="biome.png" alt="The World" />
       </div>
+      <main class="py-3 col-span-3">
+        <h2 class="border-b border-gray-500">The Animals are disappearing</h2>
+        <p>
+          Every View Counts is a website which highlights the growing threats to
+          biodiversity around the world. Take a look at the different animals.
+          It might be your last chance.
+        </p>
+      </main>
+      <div class="col-span-3 grid lg:grid-cols-6">
+        <!-- Animal cards-->
+        <div class="col-span-1 hidden lg:block">
+          <h2>Animal List</h2>
+          <ul class="py-4">
+            <li>Form</li>
+            <li>Polar Bear</li>
+            <li>Sea Turtle</li>
+            <li>Tigah</li>
+          </ul>
+        </div>
+       
+        <div class="col-span-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 py-5" id="cardContainer">
+          <div class="col-span-1 bg-white rounded-lg overflow-hidden shadow relative">
+            <img src="Polar_bear.jpg" class="h-56 w-full object-cover object-center transition-opacity hover:opacity-0 duration-1000">
+            <div class="p-4 h-auto md:h-40 lg:h-48">
+            <h4 class="block text-blue-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg">Polar Bearsss</h4>
+            <p class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">BEars do things Officia amet
+              perspiciatis ad quibusdam incidunt eaque, nobis, eveniet
+              neque porro id commodi quisquam debitis!BEars do things Officia amet
+              perspiciatis  </p>
+            <p class="border-t border-gray-500 text-gray-400">#Polar Circle</p>
+            </div>
+          </div>
+        </div>
+      <footer class="border-t border-gray-500 col-span-3">
+        <nav>
+          <ul class="flex justify-start text-xs">
+            <li class="hover:bg-gray-300 px-5">Home</li>
+            <li class="hover:bg-gray-300 px-5">About</li>
+            <li class="hover:bg-gray-300 px-5">Dashboard</li>
+          </ul>
+        </nav>
+      </footer>
     </div>
-  </div>
-</body>
+  </body>
+<script src="index.js"></script>
 </html>
