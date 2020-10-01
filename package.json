@@ -19,5 +19,8 @@
   "homepage": "https://github.com/inlandoceans/EVC2#readme",
   "dependencies": {
     "tailwindcss": "^1.8.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0"
   }
 }
